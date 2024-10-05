@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://lp1ayio3wbo3"]
+
+[ext_resource type="PackedScene" uid="uid://bb8t42gdkdn4c" path="res://game/player/player.tscn" id="1_0umr3"]
+[ext_resource type="PackedScene" uid="uid://bxjcbbeujtjqn" path="res://game/enemies/enemy.tscn" id="2_gioh7"]
+
+[node name="Debug" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_0umr3")]
+position = Vector2(507, 253)
+
+[node name="Enemy" parent="." instance=ExtResource("2_gioh7")]
+position = Vector2(169, 367)
+
+[node name="Enemy2" parent="." instance=ExtResource("2_gioh7")]
+position = Vector2(326, 511)
+
+[node name="Enemy3" parent="." instance=ExtResource("2_gioh7")]
+position = Vector2(583, 467)
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+color = Color(0.576471, 1, 0.972549, 1)

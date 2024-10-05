@@ -1,0 +1,46 @@
+[gd_scene load_steps=9 format=3 uid="uid://bxjcbbeujtjqn"]
+
+[ext_resource type="PackedScene" uid="uid://cuv0ennqapa2r" path="res://game/core/cube.tscn" id="1_tny5p"]
+[ext_resource type="Script" path="res://game/enemies/enemy.gd" id="1_ysvn0"]
+[ext_resource type="PackedScene" uid="uid://cmrum7c2t3oj8" path="res://game/core/hit_box/hit_box.tscn" id="2_uprl8"]
+[ext_resource type="PackedScene" uid="uid://fwo0fydjxa25" path="res://game/core/hurt_box/hurt_box.tscn" id="3_8mvme"]
+[ext_resource type="PackedScene" uid="uid://b4qha20704628" path="res://game/core/health/health.tscn" id="4_xax2p"]
+[ext_resource type="PackedScene" uid="uid://c1oy0fq1i1hdd" path="res://game/debug/health_debug_label.tscn" id="6_1gjuv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p5dd8"]
+size = Vector2(32, 31.8012)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ucio7"]
+size = Vector2(32, 31.8012)
+
+[node name="Enemy" type="Node2D"]
+script = ExtResource("1_ysvn0")
+
+[node name="Cube" parent="." instance=ExtResource("1_tny5p")]
+
+[node name="HitBox" parent="." instance=ExtResource("2_uprl8")]
+collision_layer = 4
+collision_mask = 0
+damage = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+visible = false
+position = Vector2(0, 4.73875e-07)
+shape = SubResource("RectangleShape2D_p5dd8")
+
+[node name="HurtBox" parent="." node_paths=PackedStringArray("health") instance=ExtResource("3_8mvme")]
+collision_layer = 0
+collision_mask = 32
+health = NodePath("../Health")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+visible = false
+position = Vector2(0, 4.73875e-07)
+shape = SubResource("RectangleShape2D_ucio7")
+
+[node name="Health" parent="." instance=ExtResource("4_xax2p")]
+
+[node name="HealthDebugLabel" parent="." node_paths=PackedStringArray("health") instance=ExtResource("6_1gjuv")]
+health = NodePath("../Health")
+
+[connection signal="on_health_changed" from="Health" to="." method="_on_health_on_health_changed"]

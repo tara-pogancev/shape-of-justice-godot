@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://c1oy0fq1i1hdd"]
+
+[ext_resource type="Script" path="res://game/debug/health_debug_label.gd" id="1_ca3tx"]
+
+[node name="HealthDebugLabel" type="Label"]
+offset_left = -72.0
+offset_top = -64.0
+offset_right = 71.0
+offset_bottom = -41.0
+script = ExtResource("1_ca3tx")

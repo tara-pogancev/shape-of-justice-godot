@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://cuv0ennqapa2r"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_liqeu"]
+size = Vector2(32, 31.8012)
+
+[node name="Cube" type="CharacterBody2D"]
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+color = Color(0.960784, 0, 0.470588, 1)
+polygon = PackedVector2Array(16, -15.9006, 16, 15.9006, -16, 15.9006, -16, -15.9006)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("RectangleShape2D_liqeu")

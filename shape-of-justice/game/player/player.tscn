@@ -1,0 +1,55 @@
+[gd_scene load_steps=6 format=3 uid="uid://bb8t42gdkdn4c"]
+
+[ext_resource type="Script" path="res://game/player/player.gd" id="1_xalcx"]
+[ext_resource type="PackedScene" uid="uid://b4qha20704628" path="res://game/core/health/health.tscn" id="2_qnqio"]
+[ext_resource type="PackedScene" uid="uid://fwo0fydjxa25" path="res://game/core/hurt_box/hurt_box.tscn" id="2_skmlg"]
+[ext_resource type="PackedScene" uid="uid://cmrum7c2t3oj8" path="res://game/core/hit_box/hit_box.tscn" id="4_7f8qm"]
+[ext_resource type="PackedScene" uid="uid://c1oy0fq1i1hdd" path="res://game/debug/health_debug_label.tscn" id="5_t1fhf"]
+
+[node name="Player" type="CharacterBody2D"]
+collision_layer = 2
+script = ExtResource("1_xalcx")
+
+[node name="HurtBox" parent="." node_paths=PackedStringArray("health") instance=ExtResource("2_skmlg")]
+collision_layer = 0
+collision_mask = 4
+health = NodePath("../Health")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="HurtBox"]
+visible = false
+rotation = 1.56977
+scale = Vector2(3.0488, 3.0488)
+polygon = PackedVector2Array(0.0135203, -13.1199, -5.24796, -0.00540829, -5.24796, -0.00540829, 5.24796, 0.00540829)
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+position = Vector2(3.8147e-06, 1.13687e-13)
+rotation = 1.5708
+scale = Vector2(3.08113, 3.08113)
+color = Color(1, 0.952941, 0.941176, 1)
+polygon = PackedVector2Array(-5.67471e-07, -12.9822, -5.19289, -4.76837e-07, 5.19289, -4.76837e-07)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+visible = false
+rotation = 1.56977
+scale = Vector2(3.0488, 3.0488)
+polygon = PackedVector2Array(0.0135203, -13.1199, -5.24796, -0.00540829, -5.24796, -0.00540829, 5.24796, 0.00540829)
+
+[node name="Health" parent="." instance=ExtResource("2_qnqio")]
+max_health = 20
+
+[node name="HitBox" parent="." instance=ExtResource("4_7f8qm")]
+collision_layer = 32
+collision_mask = 0
+damage = 3
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="HitBox"]
+visible = false
+position = Vector2(-16, 1.86265e-09)
+rotation = 1.56977
+scale = Vector2(6.48315, 6.48315)
+polygon = PackedVector2Array(0.0135203, -13.1199, -5.24796, -0.00540829, -5.24796, -0.00540829, 5.24796, 0.00540829)
+
+[node name="HealthDebugLabel" parent="." node_paths=PackedStringArray("health") instance=ExtResource("5_t1fhf")]
+health = NodePath("../Health")
+
+[connection signal="area_entered" from="HurtBox" to="." method="_on_hurt_box_area_entered"]

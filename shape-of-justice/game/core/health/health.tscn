@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://b4qha20704628"]
+
+[ext_resource type="Script" path="res://game/core/health/health.gd" id="1_wp5lj"]
+
+[node name="Health" type="Node2D"]
+script = ExtResource("1_wp5lj")
+
+[connection signal="ready" from="." to="." method="_on_ready"]
