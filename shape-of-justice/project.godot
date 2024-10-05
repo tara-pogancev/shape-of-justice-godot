@@ -63,3 +63,7 @@ dash={
 2d_physics/layer_6="EnemyHurtbox"
 2d_physics/layer_7="EnemyHitbox"
 2d_physics/layer_8="SoftCollision"
+
+[rendering]
+
+viewport/hdr_2d=true

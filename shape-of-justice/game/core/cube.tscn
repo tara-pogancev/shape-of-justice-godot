@@ -1,14 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://cuv0ennqapa2r"]
+[gd_scene load_steps=3 format=3 uid="uid://di2ll2cvlhp7n"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_liqeu"]
-size = Vector2(32, 31.8012)
+[ext_resource type="Script" path="res://game/core/cube.gd" id="1_x7jh3"]
+[ext_resource type="Texture2D" uid="uid://c8y234xs2v41d" path="res://game/core/light/circular_light.tres" id="2_gl7r4"]
 
-[node name="Cube" type="CharacterBody2D"]
-
-[node name="Polygon2D" type="Polygon2D" parent="."]
+[node name="Polygon2D" type="Polygon2D"]
 color = Color(0.960784, 0, 0.470588, 1)
 polygon = PackedVector2Array(16, -15.9006, 16, 15.9006, -16, 15.9006, -16, -15.9006)
+script = ExtResource("1_x7jh3")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
-shape = SubResource("RectangleShape2D_liqeu")
+[node name="PointLight2D" type="PointLight2D" parent="."]
+scale = Vector2(2, 2)
+texture = ExtResource("2_gl7r4")

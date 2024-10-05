@@ -4,7 +4,7 @@ extends Label
 
 func _ready() -> void:
 	update_text()	
-	health.connect("health_changed", update_text)
+	health.connect("on_health_changed", update_text)
 		
 func update_text():
 	if health != null:

@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://4qknomgfo5ym"]
+
+[ext_resource type="Script" path="res://game/world/world_obstacle/world_obstacle.gd" id="1_v1tmy"]
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_8kdr3"]
+polygon = PackedVector2Array(64, -64, 64, 64, -64, 64, -64, -64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qgfl2"]
+size = Vector2(128, 128)
+
+[node name="WorldObstacle" type="StaticBody2D"]
+script = ExtResource("1_v1tmy")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+occluder = SubResource("OccluderPolygon2D_8kdr3")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+color = Color(0, 0.00784314, 0.129412, 1)
+polygon = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("RectangleShape2D_qgfl2")
