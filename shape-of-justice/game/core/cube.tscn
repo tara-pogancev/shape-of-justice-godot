@@ -3,11 +3,12 @@
 [ext_resource type="Script" path="res://game/core/cube.gd" id="1_x7jh3"]
 [ext_resource type="Texture2D" uid="uid://c8y234xs2v41d" path="res://game/core/light/circular_light.tres" id="2_gl7r4"]
 
-[node name="Polygon2D" type="Polygon2D"]
+[node name="Cube" type="Polygon2D"]
+scale = Vector2(1.5, 1.5)
 color = Color(0.960784, 0, 0.470588, 1)
-polygon = PackedVector2Array(16, -15.9006, 16, 15.9006, -16, 15.9006, -16, -15.9006)
+polygon = PackedVector2Array(16, -16, 16, 16, -16, 16, -16, -16)
 script = ExtResource("1_x7jh3")
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
-scale = Vector2(2, 2)
+scale = Vector2(2.55325, 2.53565)
 texture = ExtResource("2_gl7r4")

@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://lp1ayio3wbo3"]
+[gd_scene load_steps=8 format=3 uid="uid://lp1ayio3wbo3"]
 
 [ext_resource type="PackedScene" uid="uid://bb8t42gdkdn4c" path="res://game/player/player.tscn" id="1_0umr3"]
 [ext_resource type="PackedScene" uid="uid://4qknomgfo5ym" path="res://game/world/world_obstacle/world_obstacle.tscn" id="1_fnyht"]
 [ext_resource type="PackedScene" uid="uid://yrykg323prkh" path="res://game/player/player_camera/player_camera.tscn" id="1_iymle"]
+[ext_resource type="Script" path="res://game/debug/debug.gd" id="1_k6yoc"]
 [ext_resource type="PackedScene" uid="uid://bxjcbbeujtjqn" path="res://game/enemies/enemy.tscn" id="2_gioh7"]
 [ext_resource type="Texture2D" uid="uid://c8y234xs2v41d" path="res://game/core/light/circular_light.tres" id="3_sbcyc"]
 
@@ -13,6 +14,7 @@ glow_bloom = 0.25
 glow_blend_mode = 0
 
 [node name="Debug" type="Node2D"]
+script = ExtResource("1_k6yoc")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_hunus")

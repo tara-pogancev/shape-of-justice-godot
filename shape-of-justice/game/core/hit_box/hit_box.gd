@@ -4,7 +4,6 @@ class_name HitBox
 
 @export var damage: int = 1
 
-
 func set_damage(value):
 	damage = value
 	

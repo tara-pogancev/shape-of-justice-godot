@@ -3,9 +3,9 @@ extends CharacterBody2D
 @export var speed = 400
 
 var player: Player = null
+@onready var health: Health = $Health
 
 func _ready() -> void:
-	# Safely cast the player node to the Player type
 	player = get_tree().current_scene.get_node("Player") as Player
 
 func _physics_process(delta: float) -> void:
@@ -24,3 +24,7 @@ func seek_player():
 			
 
 		look_at(player_position)  # Always look at the player
+		
+
+func _on_health_on_health_deplated() -> void:
+	queue_free()
